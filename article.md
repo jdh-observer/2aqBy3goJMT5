@@ -363,7 +363,8 @@ m_overview.save('media/m_overview_interactive.html')
 <a id='m_overview'></a>
 
 ```python
-display(m_overview)
+from IPython.display import IFrame
+IFrame("media/m_overview_interactive.html", width="100%", height=600)
 ```
 
 <!-- #region slideshow={"slide_type": ""} -->
@@ -1284,7 +1285,8 @@ m_rai_lisa.save('media/m_rai_lisa_dual.html')
 <a id='m_rai_lisa'></a>
 
 ```python
-display(m_rai_lisa)
+from IPython.display import IFrame
+IFrame("media/m_rai_lisa_dual.html", width="100%", height=600)
 ```
 
 <!-- #region slideshow={"slide_type": ""} -->
@@ -1464,7 +1466,3 @@ with open('requirements.txt', 'w') as f:
 </div>
 <!-- BIBLIOGRAPHY END -->
 <!-- #endregion -->
-
-```python
-
-```
