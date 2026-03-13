@@ -364,7 +364,7 @@ m_overview.save('media/m_overview_interactive.html')
 
 ```python
 from IPython.display import IFrame
-IFrame("media/m_overview_interactive.html", width="100%", height=600)
+IFrame("./media/m_overview_interactive.html", width="100%", height=600)
 ```
 
 <!-- #region slideshow={"slide_type": ""} -->
@@ -1286,7 +1286,7 @@ m_rai_lisa.save('media/m_rai_lisa_dual.html')
 
 ```python
 from IPython.display import IFrame
-IFrame("media/m_rai_lisa_dual.html", width="100%", height=600)
+IFrame("./media/m_rai_lisa_dual.html", width="100%", height=600)
 ```
 
 <!-- #region slideshow={"slide_type": ""} -->
