@@ -363,8 +363,18 @@ m_overview.save('media/m_overview_interactive.html')
 <a id='m_overview'></a>
 
 ```python
-from IPython.display import IFrame
-IFrame("./media/m_overview_interactive.html", width="100%", height=600)
+from IPython.display import HTML
+HTML('''
+<iframe
+    src="./media/m_overview_interactive.html"
+    width="100%"
+    height="600"
+    style="border: 0;"
+    loading="lazy"
+    referrerpolicy="no-referrer"
+>    
+</iframe>
+''')
 ```
 
 <!-- #region slideshow={"slide_type": ""} -->
@@ -1285,8 +1295,18 @@ m_rai_lisa.save('media/m_rai_lisa_dual.html')
 <a id='m_rai_lisa'></a>
 
 ```python
-from IPython.display import IFrame
-IFrame("./media/m_rai_lisa_dual.html", width="100%", height=600)
+from IPython.display import HTML
+HTML('''
+<iframe
+    src="./media/m_rai_lisa_dual.html"
+    width="100%"
+    height="600"
+    style="border: 0;"
+    loading="lazy"
+    referrerpolicy="no-referrer"
+>    
+</iframe>
+''')
 ```
 
 <!-- #region slideshow={"slide_type": ""} -->
