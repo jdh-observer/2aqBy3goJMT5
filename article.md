@@ -1,6 +1,7 @@
 ---
 jupyter:
   jupytext:
+    formats: ipynb,md
     text_representation:
       extension: .md
       format_name: markdown
@@ -188,7 +189,7 @@ dma = dma[dma.geometry.notna()].copy()
 dma = dma[dma.within(aarhus_city1952.union_all())].copy()
 ```
 
-```python 
+```python
 import folium
 from folium import plugins
 
@@ -473,7 +474,7 @@ buildings_by_netdistance['risk'] = pd.Categorical(
 )
 ```
 
-```python 
+```python
 # ==== BINARY THRESHOLD COMBINATION MAP ====
 
 import matplotlib.pyplot as plt
@@ -600,7 +601,7 @@ Let us look at Aarhus from yet another perspective. Given that the shelter capac
 The network-distance panel tightens the screws. Red areas expand, indicating reduced coverage once street geometry is taken into account. Short-distance blues also contract, showing how quickly accessibility decays under network conditions. Compared with the more forgiving Euclidean model, the network view exposes both central and peripheral weaknesses more sharply, revealing a system far less cohesive once real travel paths are considered.
 <!-- #endregion -->
 
-```python 
+```python
 # ==== DMIN MAP WITH THRESHOLD ====
 
 import matplotlib.pyplot as plt
@@ -706,7 +707,7 @@ display(Image('media/m_dmin_with_threshold.png'))
 We have mentioned already that the way we operationalise distance matters. The difference in accessibility visible in the maps of Aarhus in Figures 2 and 3 is not fully representative as the building centroids treat all buildings equally; however, not all buildings represent the same number of people. Buildings in the downtown contain, on average, more residents than buildings in the suburbs. Assuming that the city center is the target for a strike, the red dots signalling poor proximity of shelters in the downtown can possibly spell a disaster for more residents than a red dot in the periphery, something that we will explore in the gravity-weighted section below. For now, to lay the difference between the two models before the eyes, the cumulative distribution plots in [Figure 4](#ecdf_weighted) show the lag of the network model behind the straight distance model with curves differentiating buildings into three groups by height. The numbers in the aggregate agree with the maps: at least ~75% of buildings fall within the recommended threshold if using a radius of 300m, while only ~50% of buildings fall within it if we use network distance. The colors indicate that low-rise buildings are the least provisioned with shelters, while mid-rise and high-rise buildings are better-off by a difference of 15-20% regardless of how distance is measured. This shows high-density areas have better accessibility to shelters, while areas with a lot of single-floor houses, such as villa quarters in the suburbs, have shelters farther away. For the swift-footed residents, it is perhaps a consolation that 75-80% of low-rise buildings have a shelter within 500m distance; and all buildings regardless of height have a shelter within 1000m.
 <!-- #endregion -->
 
-```python 
+```python
 # ==== CUMULATIVE ACCESSIBILITY TO SHELTERS BY BUILDING HEIGHT (EUCLIDEAN VS NETWORK) ====
 
 import matplotlib.pyplot as plt
@@ -877,7 +878,7 @@ buildings_long = gpd.GeoDataFrame(buildings_long, geometry='geometry', crs='EPSG
 buildings_long = buildings_long.to_crs('EPSG:4326')
 ```
 
-```python 
+```python
 # ==== SHELTER COUNT / AVAILABILITY WITHIN 300M ====
 
 import matplotlib.pyplot as plt
