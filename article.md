@@ -1401,7 +1401,7 @@ In 2025 there is renewed attention - both in Denmark and abroad - to civil defen
 
 This work was made possible thanks to the funding from the Augustinus Fonden grant no. 22-1546. We are grateful to our partners at the Aarhus City Archive, Danish Cold War Association, East-Jutland Firebrigade, and Danish Building Register for their guidance and assistance in data discovery and processing. Special thanks to Ulrik Nielsen from VurderingsStyrelsen.dk for the digitized historical BRD data. We also owe great thanks to our student research assistants and volunteers who helped with shelter data streamlining and verification: Lise S Jensen, Maria Christensen, Agnes Rosendal, Andreas Mikkelsen, Aiswarya Roy, Vasilia Georgoudi, Carl Emil Thomassen, Stine Lykke Thomassen, Angel Bogdanov Grigorov, and Sahel Samsam. 
 
-```python slideshow={"slide_type": ""}
+```python slideshow={"slide_type": ""} tags=["hidden"]
 # Check your Python version
 from platform import python_version
 python_version()
@@ -1409,7 +1409,7 @@ python_version()
 #!python -V
 ```
 
-```python
+```python tags=["hidden"]
 import sys
 import pkg_resources
 
@@ -1437,11 +1437,11 @@ with open('requirements.txt', 'w') as f:
     f.write('\n'.join(requirements))
 ```
 
-<!-- #region slideshow={"slide_type": ""} -->
+<!-- #region slideshow={"slide_type": ""} tags=["hidden"] -->
 ## BIBLIOGRAPHY
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
+<!-- #region slideshow={"slide_type": ""} tags=["hidden"] -->
 <!-- BIBLIOGRAPHY START -->
 <div class="csl-bib-body">
   <div class="csl-entry"><i id="zotero|15824328/M9TJ4CD4"></i>Bjørnsson, I., Farbøl, R., &#38; Sylvest, C. (2020). Hvis krigen kommer. Forestillinger om fremtiden under den kolde krig. <i>Kulturstudier</i>, <i>1</i>. <a href="https://www.politics-society.aau.dk/research/projects/project/hvis-krigen-kommer.cid471739">https://www.politics-society.aau.dk/research/projects/project/hvis-krigen-kommer.cid471739</a></div>
