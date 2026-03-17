@@ -364,7 +364,18 @@ m_overview.save('media/m_overview_interactive.html')
 
 
 ```python jdh={"object": {"source": ["Public and private shelter distribution in Aarhus, Denmark, in 1951; dots mark the footprints of extant buildings within the city\u2019s historical boundary."]}} slideshow={"slide_type": ""} tags=["figure-aarhus-1951-overview-*"]
-display(m_overview)
+from IPython.display import HTML
+HTML('''
+<iframe
+    src="./media/m_overview_interactive.html"
+    width="100%"
+    height="600"
+    style="border: 0;"
+    loading="lazy"
+    referrerpolicy="no-referrer"
+>    
+</iframe>
+''')
 ```
 
 <!-- #region slideshow={"slide_type": ""} -->
@@ -1285,7 +1296,18 @@ m_rai_lisa.save('media/m_rai_lisa_dual.html')
 
 
 ```python tags=["figure-rai-lisa-*"]
-display(m_rai_lisa)
+from IPython.display import HTML
+HTML('''
+<iframe
+    src="./media/m_rai_lisa_dual.html"
+    width="100%"
+    height="600"
+    style="border: 0;"
+    loading="lazy"
+    referrerpolicy="no-referrer"
+>    
+</iframe>
+''')
 ```
 
 <!-- #region slideshow={"slide_type": ""} -->
