@@ -1,6 +1,7 @@
 ---
 jupyter:
   jupytext:
+    formats: ipynb,md
     text_representation:
       extension: .md
       format_name: markdown
@@ -188,7 +189,7 @@ dma = dma[dma.geometry.notna()].copy()
 dma = dma[dma.within(aarhus_city1952.union_all())].copy()
 ```
 
-```python jdh={"object": {"source": ["Public and private shelter distribution in Aarhus, Denmark, in 1951; dots mark the footprints of extant buildings within the city\u2019s historical boundary."]}} slideshow={"slide_type": ""} tags=["figure-aarhus-1951-overview-*"]
+```python
 import folium
 from folium import plugins
 
@@ -360,9 +361,9 @@ m_overview.get_root().html.add_child(folium.Element(legend_html))
 m_overview.save('media/m_overview_interactive.html')
 ```
 
-<a id='m_overview'></a>
 
-```python
+
+```python jdh={"object": {"source": ["Public and private shelter distribution in Aarhus, Denmark, in 1951; dots mark the footprints of extant buildings within the city\u2019s historical boundary."]}} slideshow={"slide_type": ""} tags=["figure-aarhus-1951-overview-*"]
 display(m_overview)
 ```
 
@@ -373,7 +374,7 @@ display(m_overview)
 <!-- #region slideshow={"slide_type": ""} -->
 The results and maps presented illustrate different aspects of accessibility to civil defence shelters in Aarhus in 1951. We evaluate whether shelters were present everywhere within the cut-off distance of 300m as specified by the civil defence; we quantify how many amenities were available within this threshold and we map the variation in minimum distance to nearest shelter across town. Euclidean and network distance measures appear side-by-side allowing the reader to gauge the difference arising from the two different conceptualisations of travel. Three overall conclusions emerge from the coverage and minimum distance patterns, first that shelter accessibility favours the city’s historical core - within the inner Ring road - over the peripheral areas, and, second, that shelter provision is far from adequate, but, third that the difference in provision is consistent with the vertical perspective of spatial equity.
 
-Looking at Aarhus in 1951, [Figure 1](#m_overview) shows the configuration of private (SR) and public (BDG) shelters within the urban fabric.  The downtown is shaped as a semicircle of 1.5 km radius centred on the historical harbour, roughly at the intersection of the numerous protruding piers and harbour extensions. Urban growth extends in all directions from this core avoiding existing parks and forests as well as swamp- and flooding-prone areas.  While the private shelters are few and far between, numbering some 17 locations at this time, public shelters are abundant, especially in the downtown area, numbering 301 in total. Most co-locate with the dense city centre, serving the high-rise buildings and associated arteries. The white areas, devoid of both kinds of shelters, are usually building-free areas on the edges of the urban sprawl or parks, forests, cemeteries or other infrastructure (Moesgaard forest stretching south of the city along the beach, the Risskov forest to the north, undeveloped land in Vejlby, the harbour). At first glance, the downtown features a dense protective net of shelters, which grows progressively thinner as it stretches to the outskirts of the city, the villa suburbs and newly developed areas in the southwest, west and north. 
+Looking at Aarhus in 1951, [Figure 1](#figure-aarhus-1951-overview-*) shows the configuration of private (SR) and public (BDG) shelters within the urban fabric.  The downtown is shaped as a semicircle of 1.5 km radius centred on the historical harbour, roughly at the intersection of the numerous protruding piers and harbour extensions. Urban growth extends in all directions from this core avoiding existing parks and forests as well as swamp- and flooding-prone areas.  While the private shelters are few and far between, numbering some 17 locations at this time, public shelters are abundant, especially in the downtown area, numbering 301 in total. Most co-locate with the dense city centre, serving the high-rise buildings and associated arteries. The white areas, devoid of both kinds of shelters, are usually building-free areas on the edges of the urban sprawl or parks, forests, cemeteries or other infrastructure (Moesgaard forest stretching south of the city along the beach, the Risskov forest to the north, undeveloped land in Vejlby, the harbour). At first glance, the downtown features a dense protective net of shelters, which grows progressively thinner as it stretches to the outskirts of the city, the villa suburbs and newly developed areas in the southwest, west and north. 
 
 <!-- #endregion -->
 
@@ -473,7 +474,7 @@ buildings_by_netdistance['risk'] = pd.Categorical(
 )
 ```
 
-```python jdh={"object": {"source": ["Data source: MELICA, DBR, OSM 2025"]}} tags=["figure-binary-threshold-*"]
+```python
 # ==== BINARY THRESHOLD COMBINATION MAP ====
 
 import matplotlib.pyplot as plt
@@ -572,9 +573,9 @@ plt.savefig('media/m_binary_threshold.png', dpi=400, bbox_inches='tight')
 plt.close()
 ```
 
-<a id='m_binary_threshold'></a>
 
-```python
+
+```python jdh={"object": {"source": ["Data source: MELICA, DBR, OSM 2025"]}} tags=["figure-binary-threshold-*"]
 display(Image('media/m_binary_threshold.png'))
 ```
 
@@ -583,7 +584,7 @@ Network distances are longer, sometimes twice as long as Euclidean distances, fo
 <!-- #endregion -->
 
 <!-- #region citation-manager={"citations": {"farbe": [], "soros": []}} slideshow={"slide_type": ""} -->
-According to [Figure 2](#m_binary_threshold), 50% coverage is the worst-case (network-distance) scenario in Aarhus of 1951. The saving grace to the dire percentage is that the insufficiency is distributed fairly evenly throughout the city. Gaps are everywhere, but shelters are too. Red spots in the downtown network scenario are particularly interesting as they point to considerable amounts of friction. Buildings in the city centre are clustered in blocks with paths on the outside, demanding that one turns many corners to get to a shelter location, even if it is at a relatively short radius. Yet, Aarhus downtown is not that impermeable, with lots of shortcuts facilitating fluid pedestrian movement in the historical centre. The extended distances in the downtown partially arise from the representation of the road network, which puts emphasis on vehicular movement and may be less ‘aware’of / informed by the pedestrian possibilities.  The lived reality of historic city centres is that there is more than one way to get to any place. In an emergency, local residents in Aarhus would have used bikes or run, treading paths across lawns where convenient, taking narrow passages or passing through multiple entryways as shortcuts between streets and buildings, and this pedestrian efficacy is likely lost in the OSM network, whose creation mostly relies on vehicle-based route registration. To justify the OSM product, however, we must admit that the habitus of city dwellers and their tight control of local space has not been put to the test under an emergency, and so we do not know which of the two scenarios is more probable.
+According to [Figure 2](#figure-binary-threshold-*), 50% coverage is the worst-case (network-distance) scenario in Aarhus of 1951. The saving grace to the dire percentage is that the insufficiency is distributed fairly evenly throughout the city. Gaps are everywhere, but shelters are too. Red spots in the downtown network scenario are particularly interesting as they point to considerable amounts of friction. Buildings in the city centre are clustered in blocks with paths on the outside, demanding that one turns many corners to get to a shelter location, even if it is at a relatively short radius. Yet, Aarhus downtown is not that impermeable, with lots of shortcuts facilitating fluid pedestrian movement in the historical centre. The extended distances in the downtown partially arise from the representation of the road network, which puts emphasis on vehicular movement and may be less ‘aware’of / informed by the pedestrian possibilities.  The lived reality of historic city centres is that there is more than one way to get to any place. In an emergency, local residents in Aarhus would have used bikes or run, treading paths across lawns where convenient, taking narrow passages or passing through multiple entryways as shortcuts between streets and buildings, and this pedestrian efficacy is likely lost in the OSM network, whose creation mostly relies on vehicle-based route registration. To justify the OSM product, however, we must admit that the habitus of city dwellers and their tight control of local space has not been put to the test under an emergency, and so we do not know which of the two scenarios is more probable.
 
 The reality check comes when we review shelter capacity.  The aggregate number of places shelters offer is just around ~17,000, which covers some 11% of the Aarhus population (150,000 in 1951). This means that even if most could reach a shelter within the mandated distance (and therefore escape time), many would have found no place inside because the shelter would already be full. Of the total shelter place number, ~15,000 places were in the public shelters (BDGs), located in the space between buildings for people on-the-go, along major roads, at the entrances to schools and public spaces. Private shelters (SRs), basements, garages and other reinforced rooms that serve families at home or workers in factories and offices, offered only two thousand places at this time, pointing to another axis of inequity. While kids in urban schools and workers doing business in the downtown had a choice of shelters available, housewives with small kids in the peripheries were likely left to their own devices. 
 
@@ -596,11 +597,11 @@ Civil defence planners were aware of the problem. The far-less-than-optimal capa
 
 <!-- #region slideshow={"slide_type": ""} -->
 Let us look at Aarhus from yet another perspective. Given that the shelter capacity was a bigger problem than distance, it is perhaps fair to assume that only individuals from the closest proximity could have found a spot in the shelter, even in the best-provided areas. To represent spatial proximity, we need more than a binary Safe/At Risk map. 
-[Figure 3](#m_dmin_with_threshold) refines the picture by mapping minimum distance to the nearest shelter. Dark blues mark areas close to a shelter; greens show locations farther away but still within the 300 m threshold; reds fall outside it. In the Euclidean model, the downtown forms a dense blue-green mosaic where multiple shelter catchments overlap, leaving few genuine gaps. Along the southern and northern fringes, however, those colours thin into isolated halos - indicating lone installations scattered across the periphery rather than a coherent safety network.
+[Figure 3](#figure-dmin-w-threshold-*) refines the picture by mapping minimum distance to the nearest shelter. Dark blues mark areas close to a shelter; greens show locations farther away but still within the 300 m threshold; reds fall outside it. In the Euclidean model, the downtown forms a dense blue-green mosaic where multiple shelter catchments overlap, leaving few genuine gaps. Along the southern and northern fringes, however, those colours thin into isolated halos - indicating lone installations scattered across the periphery rather than a coherent safety network.
 The network-distance panel tightens the screws. Red areas expand, indicating reduced coverage once street geometry is taken into account. Short-distance blues also contract, showing how quickly accessibility decays under network conditions. Compared with the more forgiving Euclidean model, the network view exposes both central and peripheral weaknesses more sharply, revealing a system far less cohesive once real travel paths are considered.
 <!-- #endregion -->
 
-```python jdh={"object": {"source": ["Data source: MELICA, DBR, OSM 2025"]}} slideshow={"slide_type": ""} tags=["figure-dmin-w-threshold-*"]
+```python
 # ==== DMIN MAP WITH THRESHOLD ====
 
 import matplotlib.pyplot as plt
@@ -696,9 +697,9 @@ plt.savefig('media/m_dmin_with_threshold.png', dpi=400, bbox_inches='tight')
 plt.close()
 ```
 
-<a id='m_dmin_with_threshold'></a>
 
-```python
+
+```python jdh={"object": {"source": ["Data source: MELICA, DBR, OSM 2025"]}} slideshow={"slide_type": ""} tags=["figure-dmin-w-threshold-*"]
 display(Image('media/m_dmin_with_threshold.png'))
 ```
 
@@ -706,7 +707,7 @@ display(Image('media/m_dmin_with_threshold.png'))
 We have mentioned already that the way we operationalise distance matters. The difference in accessibility visible in the maps of Aarhus in Figures 2 and 3 is not fully representative as the building centroids treat all buildings equally; however, not all buildings represent the same number of people. Buildings in the downtown contain, on average, more residents than buildings in the suburbs. Assuming that the city center is the target for a strike, the red dots signalling poor proximity of shelters in the downtown can possibly spell a disaster for more residents than a red dot in the periphery, something that we will explore in the gravity-weighted section below. For now, to lay the difference between the two models before the eyes, the cumulative distribution plots in [Figure 4](#ecdf_weighted) show the lag of the network model behind the straight distance model with curves differentiating buildings into three groups by height. The numbers in the aggregate agree with the maps: at least ~75% of buildings fall within the recommended threshold if using a radius of 300m, while only ~50% of buildings fall within it if we use network distance. The colors indicate that low-rise buildings are the least provisioned with shelters, while mid-rise and high-rise buildings are better-off by a difference of 15-20% regardless of how distance is measured. This shows high-density areas have better accessibility to shelters, while areas with a lot of single-floor houses, such as villa quarters in the suburbs, have shelters farther away. For the swift-footed residents, it is perhaps a consolation that 75-80% of low-rise buildings have a shelter within 500m distance; and all buildings regardless of height have a shelter within 1000m.
 <!-- #endregion -->
 
-```python jdh={"object": {"source": ["Cumulative distribution of distances to shelters in Aarhus 1951, weighted by building height, a proxy for population"]}} slideshow={"slide_type": ""} tags=["figure-cumaccess-buildheight-*"]
+```python
 # ==== CUMULATIVE ACCESSIBILITY TO SHELTERS BY BUILDING HEIGHT (EUCLIDEAN VS NETWORK) ====
 
 import matplotlib.pyplot as plt
@@ -812,9 +813,9 @@ plt.savefig('media/ecdf_weighted.png', dpi=400, bbox_inches='tight')
 plt.close()
 ```
 
-<a id='ecdf_weighted'></a>
 
-```python
+
+```python jdh={"object": {"source": ["Cumulative distribution of distances to shelters in Aarhus 1951, weighted by building height, a proxy for population"]}} slideshow={"slide_type": ""} tags=["figure-cumaccess-buildheight-*"]
 display(Image('media/ecdf_weighted.png'))
 ```
 
@@ -825,7 +826,7 @@ display(Image('media/ecdf_weighted.png'))
 <!-- #region citation-manager={"citations": {"bettc": [], "bette": [], "bettn": [], "civio": [], "hanse": [], "ortma": [], "ortmn": []}} slideshow={"slide_type": ""} -->
 Urban planners and archaeologists have long underscored that cities and peripheries are subject to different types of scaling across population, infrastructure and productivity (<cite id="bette"><a href="#zotero%7C15824328%2FNM2JCUS2">(Bettencourt, 2013)</a></cite>; <cite id="ortmn"><a href="#zotero%7C15824328%2FSDJPPFJN">(Ortman, 2023)</a></cite>; <cite id="ortma"><a href="#zotero%7C15824328%2F98CWTCCG">(Ortman et al., 2014)</a></cite>). City centres with their compact and vertical architecture house denser populations and foster intensified social interaction. This intensive social scaling has a positive impact on innovation and economic productivity but poses an extra challenge for emergency planning due to greater risk to more inhabitants (<cite id="bettn"><a href="#zotero%7C15824328%2FSZ48JCI5">(Bettencourt et al., 2007b)</a></cite>; <cite id="bettc"><a href="#zotero%7C15824328%2FUEXT7RQK">(Bettencourt et al., 2007a)</a></cite>). During the early Cold War, the civil defence considered the city centre to be the most vulnerable space (dense in terms of buildings and populations in addition to being the most likely target of air raids), hence state directives ordered that the core should be the main focus of shelter building (<cite id="civio"><a href="#zotero%7C15824328%2F7SMI3F5M">(Civilforsvarets arbejdsplan IV Oktober 1953-1955, 1953)</a></cite>). Peripheries scale materially, offering residents more living space and comfort within their spatially extensive environs. Their extent and low density make them less vulnerable as an eventual threat, as it would affect a smaller fraction of the population in the suburb than an emergency of similar extent in the downtown, and it was also considered a less likely target. However, this prioritisation resulted in the paradox that though the core was (considered) more vulnerable, it became better sheltered than the “safer” periphery areas, where residents were virtually unsheltered.
 
-Like most European cities, Aarhus reveals a densely occupied and vibrant historical core surrounded by quieter, more spacious and newer suburbs. The previous coverage and distance maps already hinted at a dividing line in shelter provision that runs between the centre and periphery. To move beyond visual impressions, we turn to a gravity-weighted accessibility index developed by Hansen (<cite id="hanse"><a href="#zotero%7C15824328%2FK68E7NZM">(Hansen, 1959)</a></cite>), which integrates shelter network distance with shelter capacity into a single cumulative measure. Aggregate capacity matters, as many buildings downtown have more than a single shelter within the distance of 300m. [Figure 5](#m_shelter_count) shows that downtown buildings have on average five shelters within the recommended distance, while the best provisioned ones have between 10 to 20 shelters within network and Euclidean distance respectively. 
+Like most European cities, Aarhus reveals a densely occupied and vibrant historical core surrounded by quieter, more spacious and newer suburbs. The previous coverage and distance maps already hinted at a dividing line in shelter provision that runs between the centre and periphery. To move beyond visual impressions, we turn to a gravity-weighted accessibility index developed by Hansen (<cite id="hanse"><a href="#zotero%7C15824328%2FK68E7NZM">(Hansen, 1959)</a></cite>), which integrates shelter network distance with shelter capacity into a single cumulative measure. Aggregate capacity matters, as many buildings downtown have more than a single shelter within the distance of 300m. [Figure 5](#figure-sheltercount-availibility-300m-*) shows that downtown buildings have on average five shelters within the recommended distance, while the best provisioned ones have between 10 to 20 shelters within network and Euclidean distance respectively. 
 <!-- #endregion -->
 
 ```python
@@ -877,7 +878,7 @@ buildings_long = gpd.GeoDataFrame(buildings_long, geometry='geometry', crs='EPSG
 buildings_long = buildings_long.to_crs('EPSG:4326')
 ```
 
-```python jdh={"object": {"source": ["Data source: MELICA, DBR, OSM 2025"]}} slideshow={"slide_type": ""} tags=["figure-sheltercount-availibility-300m-*"]
+```python
 # ==== SHELTER COUNT / AVAILABILITY WITHIN 300M ====
 
 import matplotlib.pyplot as plt
@@ -981,14 +982,14 @@ plt.savefig('media/m_shelter_count.png', dpi=400, bbox_inches='tight')
 plt.close()
 ```
 
-<a id='m_shelter_count'></a>
 
-```python
+
+```python jdh={"object": {"source": ["Data source: MELICA, DBR, OSM 2025"]}} slideshow={"slide_type": ""} tags=["figure-sheltercount-availibility-300m-*"]
 display(Image('media/m_shelter_count.png'))
 ```
 
 <!-- #region slideshow={"slide_type": ""} -->
-The Relative Accessibility Index (RAI) expresses how well each location compares to the citywide average (see [Figure 6A](#m_rai_lisa)). It combines the number and capacity of nearby shelters with a distance-decay function applied to network distance, producing unitless scores centred on 1. RAI score 1 marks average accessibility, while values below 1 indicate below-average accessibility (underserved area) and values above 1 mark above-average accessibility (well-served areas). RAI score values that approach zero means that the building has no realistic access to shelter at all.  As shown in [Figure 6A](#m_rai_lisa), the RAI surface recasts the city’s geography of preparedness. Dark, near-black zones in Risskov, Egå, and Malling–Holme mark the worst-off suburbs, where shelter opportunities are almost absent. Other suburban areas - Viby, Højbjerg, Åbyhøj - hover around the citywide average, suggesting modest but not catastrophic gaps. In contrast, bright clusters blaze across the historic downtown, where multiple shelters overlap to create well-above-average accessibility hotspots.
+The Relative Accessibility Index (RAI) expresses how well each location compares to the citywide average (see [Figure 6A](#figure-rai-lisa-*)). It combines the number and capacity of nearby shelters with a distance-decay function applied to network distance, producing unitless scores centred on 1. RAI score 1 marks average accessibility, while values below 1 indicate below-average accessibility (underserved area) and values above 1 mark above-average accessibility (well-served areas). RAI score values that approach zero means that the building has no realistic access to shelter at all.  As shown in [Figure 6A](#figure-rai-lisa-*), the RAI surface recasts the city’s geography of preparedness. Dark, near-black zones in Risskov, Egå, and Malling–Holme mark the worst-off suburbs, where shelter opportunities are almost absent. Other suburban areas - Viby, Højbjerg, Åbyhøj - hover around the citywide average, suggesting modest but not catastrophic gaps. In contrast, bright clusters blaze across the historic downtown, where multiple shelters overlap to create well-above-average accessibility hotspots.
 
 Although the overall shelter capacity was far from sufficient, the RAI shows that downtown residents and workers stood a far better chance of finding cover than their suburban counterparts.  The 1951 shelter system thus exhibits a vertical logic of spatial equity: protection clustered where the city was densest and most at risk, while the outlying neighbourhoods were left to fend for themselves.
 <!-- #endregion -->
@@ -1127,7 +1128,7 @@ def classify_lisa(row):
 buildings_proj['lisa_cluster'] = buildings_proj.apply(classify_lisa, axis=1)
 ```
 
-```python tags=["figure-rai-lisa-*"]
+```python
 # ==== DUAL MAP: RAI & LISA ====
 
 import folium
@@ -1281,14 +1282,14 @@ m_rai_lisa.m2.get_root().html.add_child(folium.Element(lisa_legend))
 m_rai_lisa.save('media/m_rai_lisa_dual.html')
 ```
 
-<a id='m_rai_lisa'></a>
 
-```python
+
+```python tags=["figure-rai-lisa-*"]
 display(m_rai_lisa)
 ```
 
 <!-- #region slideshow={"slide_type": ""} -->
-Most of the previous measures showed that the accessibility deteriorates as we go to the periphery. Yet, a reader might ask if there is a difference concealed within the peripheral and downtown clusters. It is hard to spot individual buildings which stand out from their neighbourhood in the binary color scales of Figures 2 or the subtle shading of the minimum distance or RAI visualisation (Fig. 3 and 6). LISA scores are better suited to visually differentiate intra-cluster variation by means of hot- and cold-spots and their outliers. In [Figure 6B](#m_rai_lisa), each building is assigned to one of five categories of shelter provisioning: high-high, high-low, low-low, low-high, and insignificant, where the first term refers to how well the individual building is served, and the second term marks the provisioning of its neighbourhood as a whole. Thus ‘high-high’ label marks a hotspot where a well-served building sits in a well-served area, while the reverse is a coldspot. A ‘high-low’ label means that a well-served building sits inside an underserved neighbourhood and is therefore a positive outlier. The ‘low-high’ label inverts the situation, indicating a poorly served outlier among well-served counterparts. If plotted with a diverging color scheme, it becomes easier to detect and address underserved outliers inside downtown as well as better-off clusters within the periphery. Beginning with the downtown, Nørreport and Brammervej stand out as the largest underserved sections. While everything to the east of Strandvejen (ie. harbour area and the beach) is underserved, the scores are statistically not significant enough to be flagged as coldspots. Within the poorly provisioned margins of the town, the lucky buildings are the ones closest to the few extant shelters, mostly near childcare facilities, libraries, bus stops, parks and other public amenities.
+Most of the previous measures showed that the accessibility deteriorates as we go to the periphery. Yet, a reader might ask if there is a difference concealed within the peripheral and downtown clusters. It is hard to spot individual buildings which stand out from their neighbourhood in the binary color scales of Figures 2 or the subtle shading of the minimum distance or RAI visualisation (Fig. 3 and 6). LISA scores are better suited to visually differentiate intra-cluster variation by means of hot- and cold-spots and their outliers. In [Figure 6B](#figure-rai-lisa-*), each building is assigned to one of five categories of shelter provisioning: high-high, high-low, low-low, low-high, and insignificant, where the first term refers to how well the individual building is served, and the second term marks the provisioning of its neighbourhood as a whole. Thus ‘high-high’ label marks a hotspot where a well-served building sits in a well-served area, while the reverse is a coldspot. A ‘high-low’ label means that a well-served building sits inside an underserved neighbourhood and is therefore a positive outlier. The ‘low-high’ label inverts the situation, indicating a poorly served outlier among well-served counterparts. If plotted with a diverging color scheme, it becomes easier to detect and address underserved outliers inside downtown as well as better-off clusters within the periphery. Beginning with the downtown, Nørreport and Brammervej stand out as the largest underserved sections. While everything to the east of Strandvejen (ie. harbour area and the beach) is underserved, the scores are statistically not significant enough to be flagged as coldspots. Within the poorly provisioned margins of the town, the lucky buildings are the ones closest to the few extant shelters, mostly near childcare facilities, libraries, bus stops, parks and other public amenities.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
@@ -1310,7 +1311,7 @@ Our results demonstrate agreement between the national guidelines of prioritisin
 <!-- #endregion -->
 
 <!-- #region citation-manager={"citations": {"byhis": [], "monte": []}} slideshow={"slide_type": ""} -->
-In Aarhus, civil defence shelters concentrated downtown where high-rise buildings, factories, churches, and shopping areas attracted higher-density occupation and social interaction. While precise occupancy figures for buildings and factories are unavailable, the density of the built environment ([Figure 4](#ecdf_weighted)) serves as a reasonable proxy for both residents and commuters, justifying higher risk rankings. From this perspective, the proliferation of shelters downtown responds to a greater need for them. Urban centre residents and workers could not independently establish civil defence amenities while suffering greater risk and potential harm, whereas peripheral residents were perhaps seen as less at risk by virtue of their extensive spread. While the territorial distribution of shelters is distinctly unequal, the civil defense provision is satisfied when seen from the vertical equity prism, by scaling amenities according to the urban occupation density. 
+In Aarhus, civil defence shelters concentrated downtown where high-rise buildings, factories, churches, and shopping areas attracted higher-density occupation and social interaction. While precise occupancy figures for buildings and factories are unavailable, the density of the built environment ([Figure 4](#figure-cumaccess-buildheight-*)) serves as a reasonable proxy for both residents and commuters, justifying higher risk rankings. From this perspective, the proliferation of shelters downtown responds to a greater need for them. Urban centre residents and workers could not independently establish civil defence amenities while suffering greater risk and potential harm, whereas peripheral residents were perhaps seen as less at risk by virtue of their extensive spread. While the territorial distribution of shelters is distinctly unequal, the civil defense provision is satisfied when seen from the vertical equity prism, by scaling amenities according to the urban occupation density. 
 
 Aarhus's demographic make-up in the 1950s offers additional insight into the mid-century notion of equity. Aarhus was dominated by a population of Danish or Nordic origin. The affluent residents occupied villas in suburban areas like Risskov in the north or Aaby in the west, while lower socio-economic classes resided in the center in old working-class neighborhoods such as Øgaderne, Frederiksbjerg and Trøjborg. The downtown, however, was far from the target of boutique urbanism that it is today, where festivals chase one another across the different cafe-and-culture districts. The central streets around the Aa river were once slum areas, and the ‘high-rises’ in the nearby surroundings were built by social housing organisations and workers’ unions for the benefit of the harbour workshops and downtown factories - they were ensuring a steady supply of working force (<cite id="byhis"><a href="#zotero%7C15824328%2FZN3ZS6A7">(Aarhus Universitet, 2024)</a></cite>). 
 
